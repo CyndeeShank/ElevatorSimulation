@@ -1,5 +1,6 @@
 package com.kuali.dto;
 
+import com.kuali.Main;
 import lombok.Data;
 
 /**
@@ -8,6 +9,9 @@ import lombok.Data;
 @Data
 public class Elevator {
 
+    public enum DIRECTION {
+        UP, DOWN
+    }
     public enum DOOR_STATUS {
         OPEN, CLOSED
     }
@@ -18,6 +22,7 @@ public class Elevator {
         id = id;
         currentFloor = floor;
         doorStatus = status;
+        direction = DIRECTION.UP;
         numFloorsPassed = 0;
         numTrips = 0;
         currentMode = MODE.ONLINE;
@@ -26,10 +31,12 @@ public class Elevator {
 
     Integer id;
     Integer currentFloor;
+    Integer requestedFloor;
     DOOR_STATUS doorStatus;
     Integer numTrips;
     Integer numFloorsPassed;
     MODE currentMode;
     Boolean occupied;
+    DIRECTION direction;
 
 }
