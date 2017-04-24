@@ -14,20 +14,22 @@ public class Elevator {
     public enum MODE {
         ONLINE, MAINTENANCE
     }
-    public Elevator (int floor, DOOR_STATUS status) {
+    public Elevator (Integer id, Integer floor, DOOR_STATUS status) {
+        id = id;
         currentFloor = floor;
         doorStatus = status;
         numFloorsPassed = 0;
         numTrips = 0;
         currentMode = MODE.ONLINE;
-        isOccupied = false;
+        occupied = false;
     }
 
+    Integer id;
     Integer currentFloor;
     DOOR_STATUS doorStatus;
     Integer numTrips;
     Integer numFloorsPassed;
     MODE currentMode;
-    Boolean isOccupied;
+    Boolean occupied;
 
 }
